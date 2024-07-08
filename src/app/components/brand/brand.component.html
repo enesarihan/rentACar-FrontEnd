@@ -1,5 +1,6 @@
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action">Brand List</a>
 
-  <a *ngFor="let brand of brands" href="#" class="list-group-item list-group-item-action list-group-item-primary">{{brand.brandName}}</a>
+  <a (click)="setCurrentBrand(brand)" routerLink="/Cars/Brand/{{brand.brandId}}" *ngFor="let brand of brands" href="#" [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</a>
 
+  <h5 *ngIf="currentBrand">{{currentBrand.brandName}} chase.</h5>
